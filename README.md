@@ -1,11 +1,16 @@
 # E-Soceity frontendtest with member list, add member and del member
 
-This project is develop by React with redux in TypeScript, first I try to build it without redux, by put the data in an AppState file and transfer the state to different components by withContext, then suffer confuse about props and state due to long time no practice, later found it difficult to control and step into logic confusion, so I give up. 
-First version fet-redux is built with redux by traditional reducer, state and action declare in reducer, and data from mock. The difficulty first meet is to bind value from input form into state, get inspired by React docs website: https://zh-hans.reactjs.org/docs/forms.html  , while it is demostrate in react class component, I change my project's App.tsx into react class. 
-Second version fet-rtk is built by redux-toolkit and data from mock, which is easy and efficient, by create a listDetail category in redux, and build a slice which bind state, reducer and action togather. 
-Third version is fet-rtk-fetchAPI still by redux-toolkit, but this time data fetch from API in AppClass.tsx.
-Fouth version is fet-rtk-fetchAPI-FC which data fetch from API in App.tsx. This version I change to react functional component because later use redux-toolkit thunk need to use some hooks such as useSelector from 'react-redux' to bind state from slice to component, and useDispatch from 'react-redux'. In this step, I install the react-redux to boost the redux functional programming.
-Final version is built by redux-toolkit thunkAPI, which fully cooperate with backend project to get data, post data and del data. ThunkAPI supports async awit function and run with action types pending, fullfilled and rejected. It is a different logic, I have to change my mind to adapte it, consider the data come from the backend and solve by the backend when I prompt.  Difficulty such as add member function found it works but no state refresh in the member list, later slove it by add [list] in the end of useEffect function. Del member not working when forward axios.delete with parameters to API, finally solved it by use Postman and dev tools from Chrome to work with the API and get response to figure out the parameters problem, new experience!
+### This project is develop by React with redux in TypeScript, first I try to build it without redux, by put the data in an AppState file and transfer the state to different components by withContext, then suffer confuse about props and state due to long time no practice, later found it difficult to control and step into logic confusion, so I give up. 
+
+### First version fet-redux is built with redux by traditional reducer, state and action declare in reducer, and data from mock. The difficulty first meet is to bind value from input form into state, get inspired by React docs website: https://zh-hans.reactjs.org/docs/forms.html  , while it is demostrate in react class component, I change my project's App.tsx into react class. 
+
+### Second version fet-rtk is built by redux-toolkit and data from mock, which is easy and efficient, by create a listDetail category in redux, and build a slice which bind state, reducer and action togather. 
+
+### Third version is fet-rtk-fetchAPI still by redux-toolkit, but this time data fetch from API in AppClass.tsx.
+
+### Fouth version is fet-rtk-fetchAPI-FC which data fetch from API in App.tsx. This version I change to react functional component because later use redux-toolkit thunk need to use some hooks such as useSelector from 'react-redux' to bind state from slice to component, and useDispatch from 'react-redux'. In this step, I install the react-redux to boost the redux functional programming.
+
+### Final version is built by redux-toolkit thunkAPI, which fully cooperate with backend project to get data, post data and del data. ThunkAPI supports async awit function and run with action types pending, fullfilled and rejected. It is a different logic, I have to change my mind to adapte it, consider the data come from the backend and solve by the backend when I prompt.  Difficulty such as add member function found it works but no state refresh in the member list, later slove it by add [list] in the end of useEffect function. Del member not working when forward axios.delete with parameters to API, finally solved it by use Postman and dev tools from Chrome to work with the API and get response to figure out the parameters problem, new experience!
 
 ## Available Scripts
 
