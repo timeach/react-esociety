@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { AppDispatch } from './redux/store';
+
 import './App.css';
 import MemberList from './MemberList';
 // import { appContext } from "./AppState"
-import { useSelector, useAppDispatch } from "./redux/hooks";
+import { useSelector } from "./redux/hooks";
 import { useDispatch } from "react-redux"
-import { listDetailSlice, getListDetail, addListDetail, delListDetail } from "./redux/listDetail/slice"
+import { listDetailSlice } from "./redux/listDetail/slice"
 
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 
 interface State {
   value1: string;
-  value2: number;
+  value2: string;
   list: {id: number, name: string}[] 
 }
 
@@ -21,17 +21,16 @@ const App: React.FC<Props> = (props) => {
 
   const list = useSelector((state) => state.list)
 
-  const dispatch = useAppDispatch()
+  const dispatch = useDispatch()
   
   useEffect(()=>{
-    dispatch(getListDetail())
-    // fetch("https://localhost:7073/People")
-    // .then((response) => response.json())
-    // .then((data) => dispatch(listDetailSlice.actions.fetchDone(data)))
-  }, [list])
+    fetch("https://localhost:7073/People")
+    .then((response) => response.json())
+    .then((data) => dispatch(listDetailSlice.actions.fetchDone(data)))
+  }, [])
 
   const [value1, setValue1] = useState<string>('')
-  const [value2, setValue2] = useState<number>(0)
+  const [value2, setValue2] = useState<string>('')
 
   const handelChange1 = (event) => {
     // console.log(event)
@@ -62,18 +61,16 @@ const App: React.FC<Props> = (props) => {
           // onChange={() => {setValue1(event.target.value)}}
         />
         <button
-        // onClick={() => {dispatch(listDetailSlice.actions.addName(value1))}}
-        onClick={() => {dispatch(addListDetail({name:value1}))}}
+        onClick={() => {dispatch(listDetailSlice.actions.addName(value1))}}
         >Submit</button>
 
-        <h3>Delete Member By ID</h3>
-        <input placeholder='input id here'
+        <h3>Delete Member</h3>
+        <input placeholder='input name here'
           value={value2}
           onChange={handelChange2}
         />
         <button
-        // onClick={() => {dispatch(listDetailSlice.actions.delName(value2))}}
-        onClick={() => {dispatch(delListDetail(value2))}}
+        onClick={() => {dispatch(listDetailSlice.actions.delName(value2))}}
         >Submit</button>
 
       </header>
