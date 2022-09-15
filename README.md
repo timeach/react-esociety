@@ -1,6 +1,6 @@
 # E-Soceity frontendtest with member list, add member and del member
 
-### This project is develop by React with redux in TypeScript, first I try to build it without redux, by put the data in an AppState file and transfer the state to different components by withContext, then suffer confuse about props and state due to long time no practice, later found it difficult to control and step into logic confusion, so I give up. 
+### This project is develop by React with redux in TypeScript, first I try to build it without redux, by put the data in an AppState file and transfer the state to different components by withContext, then have errors on code which is hard to solve, so I give up that way. 
 
 ### First version fet-redux is built with redux by traditional reducer, state and action declare in reducer, and data from mock. The difficulty first meet is to bind value from input form into state, get inspired by React docs website: https://zh-hans.reactjs.org/docs/forms.html  , while it is demostrate in react class component, I change my project's App.tsx into react class. 
 
